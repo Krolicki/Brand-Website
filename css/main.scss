@@ -100,7 +100,7 @@ section.hero{
 }
 
 .more{
-    margin-top: 16em;
+    margin-top: 2em;
     img{
         width: 100%;
         object-fit: cover;
@@ -114,6 +114,12 @@ section.hero{
     .desc{
         line-height: 1.5rem;
     }
+}
+
+.more-row{
+    opacity: 0;
+    transition: all 1s;
+    transform: translateY(+30%) scale(1);
 }
 
 .open-nav{
@@ -152,6 +158,11 @@ footer{
             color: rgb(35, 175, 173);
         }
     }
+}
+
+.slideIn{
+    opacity: 1;
+    transform: translateY(0%) scale(1);
 }
 
 @media only screen and (min-width: 680px){
@@ -264,7 +275,7 @@ footer{
 
 @media only screen and (min-width: 1200px){
     .container{
-        //width: 1200px;
+        width: 1200px;
         margin: 0 auto;
     }
     .more-row{
