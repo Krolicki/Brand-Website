@@ -34,7 +34,7 @@ function debounce(func, wait = 17, immediate = true) {
 function slide(e){
 
     slideElements.forEach(element => {
-        const scrollDist = (window.scrollY + window.innerHeight).toFixed() - element.clientHeight / 2;
+        const scrollDist = (window.scrollY + window.innerHeight).toFixed() - element.clientHeight / 2 + 80;
         //const elementDist = element.offsetTop + element.clientHeight;
         if(scrollDist > element.offsetTop)
             element.classList.add("slideIn");
