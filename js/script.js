@@ -45,3 +45,5 @@ function slide(e){
 
 
 window.addEventListener('scroll', debounce(slide));
+
+//window.onload = setTimeout( () => { slide(); }, 2000);
