@@ -32,7 +32,6 @@ function debounce(func, wait = 17, immediate = true) {
   };
 
 function slide(e){
-
     slideElements.forEach(element => {
         const scrollDist = (window.scrollY + window.innerHeight).toFixed() - element.clientHeight / 2 + 80;
         //const elementDist = element.offsetTop + element.clientHeight;
@@ -46,4 +45,4 @@ function slide(e){
 
 window.addEventListener('scroll', debounce(slide));
 
-//window.onload = setTimeout( () => { slide(); }, 2000);
+window.onload = setTimeout( () => { slide(); }, 2000);
