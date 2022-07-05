@@ -1,7 +1,7 @@
 const menu = document.querySelector(".menu");
 const close = document.querySelector(".close");
 const nav = document.querySelector("nav");
-const slideElements = document.querySelectorAll(".more-row");
+const slideElements = document.querySelectorAll(".slide");
 
 menu.addEventListener("click", () => {
     nav.classList.add("open-nav");
@@ -31,13 +31,25 @@ function debounce(func, wait = 17, immediate = true) {
     };
   };
 
+var getElemDistance = function ( elem ) {
+    var location = 0;
+    if (elem.offsetParent) {
+        do {
+            location += elem.offsetTop;
+            elem = elem.offsetParent;
+        } while (elem);
+    }
+    return location >= 0 ? location : 0;
+};
+
 function slide(e){
     slideElements.forEach(element => {
         const scrollDist = (window.scrollY + window.innerHeight).toFixed() - element.clientHeight / 2 + 80;
         //const elementDist = element.offsetTop + element.clientHeight;
-        if(scrollDist > element.offsetTop)
+
+        if(scrollDist > getElemDistance(element))
             element.classList.add("slideIn");
-        if(scrollDist < element.offsetTop)
+        if(scrollDist <  getElemDistance(element))
             element.classList.remove("slideIn");
     });
 }
