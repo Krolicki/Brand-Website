@@ -2,6 +2,7 @@ const menu = document.querySelector(".menu");
 const close = document.querySelector(".close");
 const nav = document.querySelector("nav");
 const slideElements = document.querySelectorAll(".slide");
+const listItems = document.querySelectorAll("li");
 
 menu.addEventListener("click", () => {
     nav.classList.add("open-nav");
@@ -54,7 +55,13 @@ function slide(e){
     });
 }
 
-
 window.addEventListener('scroll', debounce(slide));
 
 window.onload = setTimeout( () => { slide(); }, 2000);
+
+listItems.forEach(item => {
+    item.addEventListener("click", () => {
+        if(nav.classList.contains("open-nav"))
+            nav.classList.remove("open-nav");
+    })
+});
