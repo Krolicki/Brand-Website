@@ -1,7 +1,7 @@
 @charset "UTF-8";
 html {
   width: 100vw;
-  overflow-x: hidden;
+  overflow: overlay;
   scroll-behavior: smooth;
 }
 
@@ -11,6 +11,28 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 0.4vw;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(35, 175, 173);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(28, 139, 138);
+}
+
+@supports (scrollbar-color: black white) {
+  * {
+    scrollbar-color: rgb(35, 175, 173) rgba(255, 255, 255, 0);
+  }
+}
 .container {
   margin: 1.5em;
 }
