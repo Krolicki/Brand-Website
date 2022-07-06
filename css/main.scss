@@ -150,15 +150,16 @@ section.hero{
 
 footer{
     //margin: 5em -3em -10em -3em;
-    height: 15em;
+    height: 30vh;
     max-width: calc(100vw - 3em);
     background: rgb(43, 43, 43);
     display: flex;
     flex-direction: column;
-    padding: 2em;
+    padding: 25vh 10vw 10vh;
     justify-content: center;
     color: white;
     line-height: 2.5em;
+    position: relative;
 
     p{
         margin: 0;
@@ -179,6 +180,41 @@ footer{
         span{
             color: rgb(35, 175, 173);
         }
+    }
+    .footer-pageTop{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 10vh;
+        padding: 3vw 0;
+        background: rgb(74, 74, 74);
+        position: absolute;
+        vertical-align: top;  
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        transition: all 0.5s ease;
+
+        &:hover{
+            background: rgb(92, 92, 92);
+            .arrowTop:before{
+                transform: rotate(90deg) translateX(-4%);
+            }
+        }
+
+        .arrowTop::before {
+            font-size: 3rem;
+            text-decoration: none;
+            display: block;
+            width: 10vh;
+            content: "❮";
+            transform: rotate(90deg) translateX(0);
+            transition: all 0.5s ease;
+            
+        }
+        
     }
 }
 
@@ -452,6 +488,10 @@ footer{
     }
     .new-models{
         flex-direction: row !important;
+    }
+
+    .footer-pageTop{
+        height: 3vh !important;
     }
 }
 
