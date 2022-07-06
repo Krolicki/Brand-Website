@@ -73,18 +73,18 @@ function insertAfter(referenceNode, newNode) {
 
 rates.forEach(rate =>{
     let number = parseFloat(rate.innerHTML.split('/')[0]);
-    rate.setAttribute("widthattr", 2);
+    let content = ""
     if(number>4.5)
-        rate.setAttribute("cont", "★★★★★");
+        content = "★★★★★";
     else if(number>4)
-        rate.setAttribute("cont", "★★★★☆");
+        content = "★★★★☆";
     else if(number>3)
-        rate.setAttribute("cont", "★★★☆☆");
+        content = "★★★☆☆";
     else if(number>2)
-        rate.setAttribute("cont", "★★☆☆☆");
+        content = "★★☆☆☆";
     else
-        rate.setAttribute("cont", "★☆☆☆☆");
+        content = "★☆☆☆☆";
+
+    rate.setAttribute("cont", content);
 
 })
-
-//☆★
