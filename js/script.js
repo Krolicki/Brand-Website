@@ -3,6 +3,7 @@ const close = document.querySelector(".close");
 const nav = document.querySelector("nav");
 const slideElements = document.querySelectorAll(".slide");
 const listItems = document.querySelectorAll("li");
+const rates = document.querySelectorAll(".rate");
 
 menu.addEventListener("click", () => {
     nav.classList.add("open-nav");
@@ -65,3 +66,25 @@ listItems.forEach(item => {
             nav.classList.remove("open-nav");
     })
 });
+
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
+rates.forEach(rate =>{
+    let number = parseFloat(rate.innerHTML.split('/')[0]);
+    rate.setAttribute("widthattr", 2);
+    if(number>4.5)
+        rate.setAttribute("cont", "★★★★★");
+    else if(number>4)
+        rate.setAttribute("cont", "★★★★☆");
+    else if(number>3)
+        rate.setAttribute("cont", "★★★☆☆");
+    else if(number>2)
+        rate.setAttribute("cont", "★★☆☆☆");
+    else
+        rate.setAttribute("cont", "★☆☆☆☆");
+
+})
+
+//☆★
