@@ -126,8 +126,8 @@ header svg {
   background: rgb(94, 94, 94);
   margin: 0;
   z-index: 1;
-  -webkit-animation: showForm 3s ease-out forwards;
-          animation: showForm 3s ease-out forwards;
+  -webkit-animation: showForm 2s ease-out forwards;
+          animation: showForm 2s ease-out forwards;
 }
 .contact-container .right {
   background: url(../img/1.jpg) no-repeat center;
@@ -200,7 +200,7 @@ footer a {
   color: white;
 }
 footer img {
-  width: 3em;
+  max-width: 60px;
 }
 footer .logo {
   color: white;
@@ -278,6 +278,10 @@ footer .logo span {
   }
 }
 @media only screen and (max-width: 920px) {
+  .contact-container {
+    height: 100vh;
+  }
+
   .contact-box {
     grid-template-areas: "leftblock left right";
     grid-auto-flow: column !important;
@@ -296,6 +300,7 @@ footer .logo span {
   }
 
   .left-box {
+    margin-block: 4vh !important;
     grid-area: right;
     grid-row: 3;
     grid-column: 1;

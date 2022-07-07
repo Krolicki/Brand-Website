@@ -137,7 +137,7 @@ header{
         background: rgb(94, 94, 94);
         margin: 0;
         z-index: 1;
-        animation: showForm 3s ease-out forwards;
+        animation: showForm 2s ease-out forwards;
     }
 
     .right{
@@ -222,7 +222,7 @@ footer{
     }
 
     img{
-        width: 3em;
+        max-width: 60px;
     }
 
     .logo{
@@ -310,6 +310,9 @@ footer{
 }
 
 @media only screen and (max-width: 920px){
+    .contact-container{
+        height: 100vh;
+    }
     .contact-box{
         grid-template-areas: "leftblock left right";
         grid-auto-flow:  column !important;
@@ -325,6 +328,7 @@ footer{
         grid-row: 2;
     }
     .left-box{
+        margin-block: 4vh !important;
         grid-area: right;
         grid-row: 3;
         grid-column: 1;
