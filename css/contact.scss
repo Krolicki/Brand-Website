@@ -1,3 +1,11 @@
+:root{
+    --form-width: 50vw;
+}
+
+*{
+    font-family: 'Poppins', sans-serif; 
+}
+
 html {
     width: 100vw;
     overflow: overlay;
@@ -105,7 +113,7 @@ header{
 
 
 .contact-container{
-    height: 100vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -115,20 +123,21 @@ header{
     // background-size: cover;
 
     .contact-box{
-        *{border: 1px solid rgb(202, 25, 25) !important;}
+       // *{border: 1px solid rgb(202, 25, 25) !important;}
         width: 100%;
         display: grid;
-        grid-template-columns: 10vw 1fr 1fr;
+        grid-template-columns: 5vw var(--form-width) calc(100vw - var(--form-width) - 5vw);
         justify-content: center;
         align-items: center;
         
     }
 
     .left-box{
-        width: 10vw;
         height: 100%;
         background: rgb(94, 94, 94);
         margin: 0;
+        z-index: 1;
+        animation: showForm 3s ease-out forwards;
     }
 
     .right{
@@ -138,16 +147,53 @@ header{
     }
 
     .left{
-        padding: 20px 30px;
+        padding: 0 6vw;
         margin: 0;
 
         .field{
-            margin-inline: 0;
+            box-sizing: border-box;
+            outline: none;
+            margin-inline: auto;
             margin-bottom: 2em;
             border: none;
             width: 100%;
             padding: .5rem 1rem;
-            background-color: rgb(182, 203, 206);
+            background-color: rgb(197, 197, 197);
+        }
+        textarea{
+            min-height: 15vh;
+            resize: none;
+        }
+        h2{
+            position: relative;
+            padding-bottom: 10px;
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 20%;
+                height: 4px;
+                background-color: rgb(35, 175, 173);
+                border-radius: 2px;
+
+            }
+        }
+        button{
+            margin-top: -10px;
+            padding: .5rem 1rem;
+            width: 30%;
+            background-color: rgb(35, 175, 173);
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color .5s ease-out;
+
+            &:hover{
+                background-color: rgb(34, 151, 149);
+            }
+
         }
     }
 }
@@ -155,12 +201,12 @@ header{
 
 footer{
     //margin: 5em -3em -10em -3em;
-    height: 30vh;
+    // height: 10vh;
     max-width: calc(100vw - 3em);
     background: rgb(43, 43, 43);
     display: flex;
     flex-direction: column;
-    padding: 25vh 10vw 10vh;
+    padding: 10vh;
     justify-content: center;
     color: white;
     line-height: 2.5em;
@@ -185,41 +231,6 @@ footer{
         span{
             color: rgb(35, 175, 173);
         }
-    }
-    .footer-pageTop{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        height: 10vh;
-        padding: 3vw 0;
-        background: rgb(74, 74, 74);
-        position: absolute;
-        vertical-align: top;  
-        top: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        transition: all 0.5s ease;
-
-        &:hover{
-            background: rgb(92, 92, 92);
-            .arrowTop:before{
-                transform: rotate(90deg) translateX(-4%);
-            }
-        }
-
-        .arrowTop::before {
-            font-size: 3rem;
-            text-decoration: none;
-            display: block;
-            width: 10vh;
-            content: "❮";
-            transform: rotate(90deg) translateX(0);
-            transition: all 0.5s ease;
-            
-        }
-        
     }
 }
 
@@ -296,4 +307,43 @@ footer{
         margin: 0;
      }
 
+}
+
+@media only screen and (max-width: 920px){
+    .contact-box{
+        grid-template-areas: "leftblock left right";
+        grid-auto-flow:  column !important;
+        grid-template-columns: 1fr 0!important;
+    }
+    .right{
+        grid-area: leftblock;
+        margin-inline: auto;
+		height: 200px !important;
+        width: 88vw;
+	}
+    .left{
+        grid-row: 2;
+    }
+    .left-box{
+        grid-area: right;
+        grid-row: 3;
+        grid-column: 1;
+        height: 10vh !important;
+        width: 88vw !important;
+        margin-inline: auto !important;
+    }
+
+}
+
+
+@keyframes showForm{
+    0%{
+        width: calc(5vw + var(--form-width));
+    }
+    30%{
+        width: calc(5vw + var(--form-width));
+    }
+    100%{
+        width: 100%;
+    }
 }
