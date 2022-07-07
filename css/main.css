@@ -43,6 +43,7 @@ a {
 }
 
 img {
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   /* IE 9 */
   /* Chrome, Safari, Opera */
