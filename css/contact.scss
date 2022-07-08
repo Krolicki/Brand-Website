@@ -160,12 +160,15 @@ header{
     .left{
         padding: 0 6vw;
         margin: 0;
+        position: relative;
 
+        form{
+            margin-top: 2em;
+        }
         .field{
             box-sizing: border-box;
             outline: none;
             margin-inline: auto;
-            margin-bottom: 2em;
             border: none;
             width: 100%;
             padding: .5rem 1rem;
@@ -177,9 +180,40 @@ header{
             }
             &:focus{
                 background-color: rgb(220, 220, 220);
-                box-shadow: inset 0px 0px 3px 0px rgba(66, 68, 90, 1);
+                box-shadow: inset 0px 0px 3px 0px rgba(35, 175, 173, 1);
+            }
+            &::placeholder{
+                color: transparent;
+            }
+   
+        }
+
+        .inp{
+            margin-top: 0.5em;
+
+            label{
+                display: block;
+                color:rgb(79, 79, 79);
+                opacity: 1;
+                transform: translate(1rem, -1.75rem);
+                transform-origin: 0 0;
+                font-size: .8rem;
+                pointer-events: none;
+                transition: all 0.3s;
+            }
+            .field:focus + label, .field:not(:placeholder-shown) + label{
+                transform: translate(0.9rem, -3.5rem) !important;
+            }
+            &.area{
+                label{
+                    transform: translate(1rem, -6.7rem) !important;
+                }
+                .field:focus + label, .field:not(:placeholder-shown) + label{
+                    transform: translate(.9rem, -8.5rem) !important;
+                }
             }
         }
+
         textarea{
             min-height: 15vh;
             resize: none;
@@ -201,7 +235,6 @@ header{
             }
         }
         button{
-            margin-top: -10px;
             padding: .5rem 1rem;
             width: 30%;
             background-color: rgb(35, 175, 173);

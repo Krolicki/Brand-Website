@@ -147,12 +147,15 @@ header svg {
 .contact-container .left {
   padding: 0 6vw;
   margin: 0;
+  position: relative;
+}
+.contact-container .left form {
+  margin-top: 2em;
 }
 .contact-container .left .field {
   box-sizing: border-box;
   outline: none;
   margin-inline: auto;
-  margin-bottom: 2em;
   border: none;
   width: 100%;
   padding: 0.5rem 1rem;
@@ -164,7 +167,50 @@ header svg {
 }
 .contact-container .left .field:focus {
   background-color: rgb(220, 220, 220);
-  box-shadow: inset 0px 0px 3px 0px rgb(66, 68, 90);
+  box-shadow: inset 0px 0px 3px 0px rgb(35, 175, 173);
+}
+.contact-container .left .field::-moz-placeholder {
+  color: transparent;
+}
+.contact-container .left .field:-ms-input-placeholder {
+  color: transparent;
+}
+.contact-container .left .field::placeholder {
+  color: transparent;
+}
+.contact-container .left .inp {
+  margin-top: 0.5em;
+}
+.contact-container .left .inp label {
+  display: block;
+  color: rgb(79, 79, 79);
+  opacity: 1;
+  transform: translate(1rem, -1.75rem);
+  transform-origin: 0 0;
+  font-size: 0.8rem;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.contact-container .left .inp .field:not(:-moz-placeholder-shown) + label {
+  transform: translate(0.9rem, -3.5rem) !important;
+}
+.contact-container .left .inp .field:not(:-ms-input-placeholder) + label {
+  transform: translate(0.9rem, -3.5rem) !important;
+}
+.contact-container .left .inp .field:focus + label, .contact-container .left .inp .field:not(:placeholder-shown) + label {
+  transform: translate(0.9rem, -3.5rem) !important;
+}
+.contact-container .left .inp.area label {
+  transform: translate(1rem, -6.7rem) !important;
+}
+.contact-container .left .inp.area .field:not(:-moz-placeholder-shown) + label {
+  transform: translate(0.9rem, -8.5rem) !important;
+}
+.contact-container .left .inp.area .field:not(:-ms-input-placeholder) + label {
+  transform: translate(0.9rem, -8.5rem) !important;
+}
+.contact-container .left .inp.area .field:focus + label, .contact-container .left .inp.area .field:not(:placeholder-shown) + label {
+  transform: translate(0.9rem, -8.5rem) !important;
 }
 .contact-container .left textarea {
   min-height: 15vh;
@@ -186,7 +232,6 @@ header svg {
   border-radius: 2px;
 }
 .contact-container .left button {
-  margin-top: -10px;
   padding: 0.5rem 1rem;
   width: 30%;
   background-color: rgb(35, 175, 173);
