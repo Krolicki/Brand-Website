@@ -20,7 +20,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 0.4vw;
+  width: 0.5vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -108,53 +108,121 @@ header svg {
 }
 
 .contact-container {
-  height: 70vh;
+  height: 80vh;
   width: 100%;
+  border: 0 !important;
+  outline: none;
+  display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  margin-top: 8vh;
+  margin-bottom: -1px;
+  position: relative;
 }
 .contact-container .contact-box {
   width: 100%;
   display: grid;
-  grid-template-columns: 5vw var(--form-width) calc(100vw - var(--form-width) - 5vw);
+  grid-template-columns: 2vw var(--form-width) calc(100vw - var(--form-width) - 2vw);
   justify-content: center;
   align-items: center;
+  margin-bottom: 20vh;
 }
 .contact-container .left-box {
   height: 100%;
-  background: rgb(94, 94, 94);
+  background: rgba(99, 36, 0, 0.9411764706);
+  left: 0;
+  top: 0;
   margin: 0;
   z-index: 1;
-  -webkit-animation: showForm 2s ease-out forwards;
-          animation: showForm 2s ease-out forwards;
+  width: 100%;
+  transform-origin: top left;
+  -webkit-animation: showForm 1s ease-out forwards;
+          animation: showForm 1s ease-out forwards;
 }
 .contact-container .right {
   background: url(../img/1.jpg) no-repeat center;
   height: 100%;
   background-size: cover;
+  z-index: 2;
 }
 .contact-container .left {
   padding: 0 6vw;
   margin: 0;
+  position: relative;
+}
+.contact-container .left form {
+  margin-top: 2em;
 }
 .contact-container .left .field {
   box-sizing: border-box;
   outline: none;
   margin-inline: auto;
-  margin-bottom: 2em;
   border: none;
   width: 100%;
   padding: 0.5rem 1rem;
   background-color: rgb(197, 197, 197);
+  transition: all 0.5s ease;
+}
+.contact-container .left .field:hover {
+  background-color: rgb(190, 190, 190);
+}
+.contact-container .left .field:focus {
+  background-color: rgb(220, 220, 220);
+  box-shadow: inset 0px 0px 3px 0px rgb(35, 175, 173);
+}
+.contact-container .left .field::-moz-placeholder {
+  color: transparent;
+}
+.contact-container .left .field:-ms-input-placeholder {
+  color: transparent;
+}
+.contact-container .left .field::placeholder {
+  color: transparent;
+}
+.contact-container .left .inp {
+  margin-top: 0.5em;
+}
+.contact-container .left .inp label {
+  display: block;
+  color: rgb(79, 79, 79);
+  opacity: 1;
+  transform: translate(1rem, -1.75rem);
+  transform-origin: 0 0;
+  font-size: 0.8rem;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.contact-container .left .inp .field:not(:-moz-placeholder-shown) + label {
+  transform: translate(0.9rem, -3.5rem) !important;
+}
+.contact-container .left .inp .field:not(:-ms-input-placeholder) + label {
+  transform: translate(0.9rem, -3.5rem) !important;
+}
+.contact-container .left .inp .field:focus + label, .contact-container .left .inp .field:not(:placeholder-shown) + label {
+  transform: translate(0.9rem, -3.5rem) !important;
+}
+.contact-container .left .inp.area label {
+  transform: translate(1rem, -6.7rem) !important;
+}
+.contact-container .left .inp.area .field:not(:-moz-placeholder-shown) + label {
+  transform: translate(0.9rem, -8.5rem) !important;
+}
+.contact-container .left .inp.area .field:not(:-ms-input-placeholder) + label {
+  transform: translate(0.9rem, -8.5rem) !important;
+}
+.contact-container .left .inp.area .field:focus + label, .contact-container .left .inp.area .field:not(:placeholder-shown) + label {
+  transform: translate(0.9rem, -8.5rem) !important;
 }
 .contact-container .left textarea {
-  min-height: 15vh;
+  min-height: 6.7rem;
   resize: none;
 }
 .contact-container .left h2 {
   position: relative;
   padding-bottom: 10px;
+  margin-top: 0;
 }
 .contact-container .left h2::after {
   content: "";
@@ -167,7 +235,6 @@ header svg {
   border-radius: 2px;
 }
 .contact-container .left button {
-  margin-top: -10px;
   padding: 0.5rem 1rem;
   width: 30%;
   background-color: rgb(35, 175, 173);
@@ -180,6 +247,17 @@ header svg {
 .contact-container .left button:hover {
   background-color: rgb(34, 151, 149);
 }
+.contact-container .bottom {
+  width: 100vw;
+  height: 5vh;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgb(43, 43, 43);
+  -webkit-clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
+}
 
 footer {
   max-width: calc(100vw - 3em);
@@ -191,6 +269,7 @@ footer {
   color: white;
   line-height: 2.5em;
   position: relative;
+  border: 0 !important;
 }
 footer p {
   margin: 0;
@@ -281,53 +360,46 @@ footer .logo span {
   .contact-container {
     height: 100vh;
   }
-
-  .contact-box {
+  .contact-container .contact-box {
     grid-template-areas: "leftblock left right";
     grid-auto-flow: column !important;
     grid-template-columns: 1fr 0 !important;
   }
-
-  .right {
+  .contact-container .right {
     grid-area: leftblock;
     margin-inline: auto;
     height: 200px !important;
     width: 88vw;
   }
-
-  .left {
+  .contact-container .left {
     grid-row: 2;
   }
-
-  .left-box {
-    margin-block: 4vh !important;
-    grid-area: right;
-    grid-row: 3;
-    grid-column: 1;
-    height: 10vh !important;
-    width: 88vw !important;
-    margin-inline: auto !important;
+  .contact-container .left h2 {
+    margin-top: 20px;
+  }
+  .contact-container .left-box {
+    display: none;
   }
 }
 @-webkit-keyframes showForm {
   0% {
-    width: calc(5vw + var(--form-width));
+    transform: scaleX(27);
   }
   30% {
-    width: calc(5vw + var(--form-width));
+    transform: scaleX(27);
   }
   100% {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 @keyframes showForm {
   0% {
-    width: calc(5vw + var(--form-width));
+    transform: scaleX(27);
   }
   30% {
-    width: calc(5vw + var(--form-width));
+    transform: scaleX(27);
   }
   100% {
-    width: 100%;
+    transform: scaleX(1);
   }
 }/*# sourceMappingURL=contact.css.map */
