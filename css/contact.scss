@@ -113,11 +113,18 @@ header{
 
 
 .contact-container{
-    height: 70vh;
+    height: 89vh;
     width: 100%;
+    border: 0 !important;
+    outline: none;
+    display: inline-block;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow:hidden; 
+    margin-bottom: -1px;
+   // margin-bottom: 10vh;
+    position: relative;
     // background: url(../img/1.jpg) no-repeat center;
     // filter: blur(10px);
     // background-size: cover;
@@ -135,9 +142,13 @@ header{
     .left-box{
         height: 100%;
         background: rgb(94, 94, 94);
+        left: 0;
+        top: 0;
         margin: 0;
         z-index: 1;
-        animation: showForm 2s ease-out forwards;
+        width: 100%;
+        transform-origin: top left;
+        animation: showForm 1.5s ease-out forwards;
     }
 
     .right{
@@ -159,6 +170,15 @@ header{
             width: 100%;
             padding: .5rem 1rem;
             background-color: rgb(197, 197, 197);
+            transition: all .5s ease;
+
+            &:hover{
+                background-color: rgb(190, 190, 190);
+            }
+            &:focus{
+                background-color: rgb(220, 220, 220);
+                box-shadow: inset 0px 0px 3px 0px rgba(66, 68, 90, 1);
+            }
         }
         textarea{
             min-height: 15vh;
@@ -167,6 +187,7 @@ header{
         h2{
             position: relative;
             padding-bottom: 10px;
+            margin-top: 0;
             &::after{
                 content: '';
                 position: absolute;
@@ -196,6 +217,17 @@ header{
 
         }
     }
+    .bottom{
+        width: 100vw;
+        height: 5vh;
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+       // background: linear-gradient(rgb(255, 255, 255) 0%,  rgb(43, 43, 43)100%)
+       background:  rgb(43, 43, 43);
+       clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
+    }
 }
 
 
@@ -211,6 +243,7 @@ footer{
     color: white;
     line-height: 2.5em;
     position: relative;
+    border: 0 !important;
 
     p{
         margin: 0;
@@ -312,29 +345,35 @@ footer{
 @media only screen and (max-width: 920px){
     .contact-container{
         height: 100vh;
-    }
-    .contact-box{
-        grid-template-areas: "leftblock left right";
-        grid-auto-flow:  column !important;
-        grid-template-columns: 1fr 0!important;
-    }
-    .right{
-        grid-area: leftblock;
-        margin-inline: auto;
-		height: 200px !important;
-        width: 88vw;
-	}
-    .left{
-        grid-row: 2;
-    }
-    .left-box{
-        margin-block: 4vh !important;
-        grid-area: right;
-        grid-row: 3;
-        grid-column: 1;
-        height: 10vh !important;
-        width: 88vw !important;
-        margin-inline: auto !important;
+    
+        .contact-box{
+            grid-template-areas: "leftblock left right";
+            grid-auto-flow:  column !important;
+            grid-template-columns: 1fr 0!important;
+        }
+        .right{
+            grid-area: leftblock;
+            margin-inline: auto;
+            height: 200px !important;
+            width: 88vw;
+        }
+        .left{
+            grid-row: 2;
+
+            h2{
+                margin-top: 20px;
+            }
+        }
+        .left-box{
+            // margin-block: 4vh !important;
+            // grid-area: right;
+            // grid-row: 3;
+            // grid-column: 1;
+            // height: 10vh !important;
+            // width: 88vw !important;
+            // margin-inline: auto !important;
+            display: none;
+        }
     }
 
 }
@@ -342,12 +381,12 @@ footer{
 
 @keyframes showForm{
     0%{
-        width: calc(5vw + var(--form-width));
+       transform: scaleX(11);
     }
     30%{
-        width: calc(5vw + var(--form-width));
+        transform: scaleX(11);
     }
     100%{
-        width: 100%;
+        transform: scaleX(1);
     }
 }
