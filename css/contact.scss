@@ -20,7 +20,7 @@ body{
 }
 
 ::-webkit-scrollbar {
-    width: .4vw;
+    width: .5vw;
 }
 ::-webkit-scrollbar-track {
     background: transparent;
@@ -148,7 +148,7 @@ header{
         z-index: 1;
         width: 100%;
         transform-origin: top left;
-        animation: showForm 1.5s ease-out forwards;
+        animation: showForm 1s ease-out forwards;
     }
 
     .right{
@@ -215,7 +215,7 @@ header{
         }
 
         textarea{
-            min-height: 15vh;
+            min-height: 6.7rem;
             resize: none;
         }
         h2{

@@ -20,7 +20,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 0.4vw;
+  width: 0.5vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -136,8 +136,8 @@ header svg {
   z-index: 1;
   width: 100%;
   transform-origin: top left;
-  -webkit-animation: showForm 1.5s ease-out forwards;
-          animation: showForm 1.5s ease-out forwards;
+  -webkit-animation: showForm 1s ease-out forwards;
+          animation: showForm 1s ease-out forwards;
 }
 .contact-container .right {
   background: url(../img/1.jpg) no-repeat center;
@@ -213,7 +213,7 @@ header svg {
   transform: translate(0.9rem, -8.5rem) !important;
 }
 .contact-container .left textarea {
-  min-height: 15vh;
+  min-height: 6.7rem;
   resize: none;
 }
 .contact-container .left h2 {
