@@ -391,9 +391,10 @@ footer{
     top: 0;
     left: 0;
     margin: 0;
-    z-index: 5;
+    z-index: 99;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll !important;
     background: transparent;
     //border: 1px solid red;
     //*{border: 1px solid red}
@@ -423,16 +424,18 @@ footer{
         .new-dsc{
             padding: 5%;
             justify-self: start;
+            text-align: left;
             margin: 0;
             position: relative;
             h2{
-                font-size: 2rem;
+                font-size: 2vmax;
             }
             p{
-                font-size: 1.5rem;
+                font-size: 1.5vmax;
             }
             button{
                 margin-top: 1em;
+                font-size: 1vmax;
                 padding: 1em 2em;
                 border: none;
                 border-radius: 0.5em;
@@ -446,7 +449,7 @@ footer{
             }
             .close-button{
                 position: absolute;
-                    top: 1em;
+                    top: 0.5em;
                     right: 1em;
                     cursor: pointer;
                 &::before{
@@ -618,6 +621,38 @@ footer{
      nav{
         margin: 0;
      }
+
+}
+
+@media only screen and (max-width: 920px){
+    .see-more{
+        overflow-y: scroll !important;
+        .more-content{
+            border-radius: 1%;
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 0 auto;
+            //height: 95%;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.254);
+            .new-dsc{
+                height: 90%;
+                padding-bottom: 10%;
+                h2{
+                    font-size: 4vmax !important;
+                }
+                p{
+                    font-size: 3vmax !important;
+                }
+                button{
+                    font-size: 2vmax;
+                }
+            }
+            .close-button{
+                    position: fixed !important ;
+                    top: 0.5em !important;
+                    right: 0.5em !important;
+            }
+        }
+    }
 
 }
 
