@@ -274,7 +274,7 @@ footer .footer-pageTop .arrowTop::before {
   background: rgba(245, 245, 245, 0.599);
   display: flex;
   border-radius: 9px;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   margin: 0 auto 2em auto;
   justify-content: center;
@@ -285,10 +285,14 @@ footer .footer-pageTop .arrowTop::before {
   transform: translateY(-10%);
   padding: 0;
 }
+.new-model .new-image .more-content {
+  height: 100%;
+  width: 100%;
+}
 .new-model .new-image img {
   margin-top: 0;
-  width: 100%;
-  min-height: 45%;
+  max-width: 100%;
+  height: 45%;
   -o-object-fit: cover;
      object-fit: cover;
 }
