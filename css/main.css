@@ -57,6 +57,7 @@ img {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  will-change: transform;
   -webkit-animation: intro 2s forwards;
           animation: intro 2s forwards;
 }
@@ -124,6 +125,7 @@ h1 {
 section.hero {
   color: white;
   height: 80vh;
+  will-change: opacity, transform;
   -webkit-animation: moveDown 1s ease-in-out forwards;
           animation: moveDown 1s ease-in-out forwards;
   opacity: 0;
@@ -133,6 +135,7 @@ section.hero .arrow {
   position: absolute;
   bottom: 8em;
   height: 10vh;
+  will-change: transform;
   animation: arrowAnim 1s alternate-reverse infinite;
 }
 section.hero .arrow path {
@@ -229,11 +232,6 @@ footer .footer-pageTop .arrowTop::before {
 .slideIn {
   opacity: 1 !important;
   transform: translateY(0%) scale(1);
-}
-
-.slideNew {
-  -webkit-animation: showNew 1s ease-in-out forwards;
-          animation: showNew 1s ease-in-out forwards;
 }
 
 .new-model {
@@ -421,9 +419,10 @@ footer .footer-pageTop .arrowTop::before {
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   color: black;
-  transition: opacity 1s ease-in-out;
-  -webkit-animation: showDsc 1s ease-in-out;
-          animation: showDsc 1s ease-in-out;
+  transition: opacity 1s ease-in;
+  -webkit-animation: showDsc 1s ease-in;
+          animation: showDsc 1s ease-in;
+  will-change: opacity;
   opacity: 0;
 }
 .see-more .more-content {
@@ -710,24 +709,6 @@ footer .footer-pageTop .arrowTop::before {
   }
   to {
     transform: translateY(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes showNew {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 30%;
-    opacity: 1;
-  }
-}
-@keyframes showNew {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 30%;
     opacity: 1;
   }
 }
