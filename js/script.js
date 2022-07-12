@@ -57,7 +57,7 @@ function slide(e){
         if(scrollDist <  getElemDistance(element))
             element.classList.remove("slideIn");
     });
-    
+
     let scroll = window.pageYOffset;
 
     if(scroll <= 0){
@@ -121,8 +121,20 @@ seeMoreButtons.forEach(btn => {
 
         clone.querySelector(".close-button").addEventListener("click", function closeSection(){
             clone.classList.remove("show-element");
-            setTimeout(() => {btn.closest(".new-models").removeChild(clone);},1000);
+            setTimeout(() => {
+                btn.closest(".new-models").removeChild(clone);
+                if(getComputedStyle(menu).display !== "none"){
+                    menu.classList.remove("move-back");
+                }
+            },500);
             
         })
+
+        if(getComputedStyle(menu).display !== "none"){
+            menu.classList.add("move-back");
+        }
+
     })
 })
+
+console.log(getComputedStyle(menu).display === "none");

@@ -96,6 +96,7 @@ nav .close {
   float: right;
   margin: 1em;
   width: 2.5em;
+  cursor: pointer;
 }
 
 .active-menu {
@@ -107,7 +108,8 @@ nav .close {
   justify-content: space-between;
   width: 100%;
 }
-.navbar svg {
+.navbar .menu {
+  transition: transform 0.3s;
   width: 3em;
   cursor: pointer;
 }
@@ -420,9 +422,9 @@ footer .footer-pageTop .arrowTop::before {
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   color: black;
-  transition: opacity 1s ease-in;
-  -webkit-animation: showDsc 1s ease-in;
-          animation: showDsc 1s ease-in;
+  transition: opacity 0.5s ease-in;
+  -webkit-animation: showDsc 0.5s ease-in;
+          animation: showDsc 0.5s ease-in;
   will-change: opacity;
   opacity: 0;
 }
@@ -469,7 +471,7 @@ footer .footer-pageTop .arrowTop::before {
 }
 .see-more .more-content .new-dsc .close-button {
   position: absolute;
-  top: 0.5em;
+  top: 1em;
   right: 1em;
   cursor: pointer;
 }
@@ -479,6 +481,10 @@ footer .footer-pageTop .arrowTop::before {
 
 .show-element {
   opacity: 1;
+}
+
+.move-back {
+  transform: translateX(-120%);
 }
 
 .scroll-up .menu, .scroll-down .menu {
@@ -682,8 +688,9 @@ footer .footer-pageTop .arrowTop::before {
   }
   .see-more .more-content .close-button {
     position: fixed !important;
-    top: 0.5em !important;
+    top: 1em !important;
     right: 0.5em !important;
+    cursor: pointer;
   }
 }
 @-webkit-keyframes intro {
