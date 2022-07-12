@@ -55,6 +55,7 @@ img {
     width: 100%;
     height: 100vh;
     z-index: -1;
+    will-change: transform;
     animation: intro 2s forwards;
 }
 
@@ -126,6 +127,7 @@ h1{
 section.hero{
     color: white;
     height: 80vh;
+    will-change: opacity, transform;
     animation: moveDown 1s ease-in-out forwards;
     opacity: 0;
     margin-top: 20vh;
@@ -136,6 +138,7 @@ section.hero{
         bottom: 8em;
         //width: 1em;
         height: 10vh;
+        will-change: transform;
         animation: arrowAnim 1s alternate-reverse infinite;
         path{
             fill: white;
@@ -245,10 +248,6 @@ footer{
     transform: translateY(0%) scale(1);
 }
 
-.slideNew{
-    animation: showNew 1s ease-in-out forwards;
-}
-
 .new-model{
     color: white;
     margin: 12em 0 8em 0;
@@ -274,6 +273,7 @@ footer{
         align-items: center;
         justify-content: center;
         clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
+        position: relative;
     }
 
     h1{
@@ -288,29 +288,39 @@ footer{
 
     .new-image{
         color: black;
-        background: rgba(230, 230, 230, 0.9);
+        background: rgba(245, 245, 245, 0.599);
         display: flex;
-        align-items: center;
+        border-radius: 9px;
+        align-items: flex-start;
         flex-direction: column;
         margin: 0 auto 2em auto;
         justify-content: center;
         width: 90%;
         //padding: 3em;
         z-index: 1;
-        box-shadow: 0px 0px 12px 0px rgba(95, 95, 95, 1);
-        transition: all 0.5s,;
+        transition: transform .5s ease-out;
+        will-change: transform;
         transform: translateY(-10%);
         padding: 0;
-        
+        .more-content{
+            height: 100%;
+            width: 100%;
+        }
         img{
             margin-top: 0;
-            width: 100%;
-            min-height: 45%;
+            max-width: 100%;
+            height: 45%;
             object-fit: cover;
         }
         .new-dsc{
             padding: 3em;
             height: 55%;
+            .desc{
+                display: none;
+            }
+            .close-button{
+                display: none;
+            }
         }
         h2{
             margin: 0.5em 0;
@@ -320,23 +330,55 @@ footer{
         }
 
         button{
+            position: relative;
             margin-top: 1em;
             padding: 1em 2em;
             border: none;
             border-radius: 0.5em;
             background-color: rgb(28, 139, 138);
             color: white;
-            transition: box-shadow 0.5s;
             cursor: pointer;
-            &:hover{
-                box-shadow: 0px 0px 12px 0px rgba(95, 95, 95, 1);
+            &::after{
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                border-radius: 0.5em;
+                background: transparent;
+                opacity: 0;
+                box-shadow: 3px 3px 16px 0px rgba(5, 5, 5, 0.305);
+                transition: opacity 0.5s ease-out;
+                will-change: opacity;
+            }
+            &:hover::after{
+                opacity: 1;
+            }
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            border-radius: 9px;
+            background: transparent;
+            opacity: .35;
+            box-shadow: 3px 3px 16px 0px rgba(5, 5, 5, 0.305);
+            transition: opacity .5s ease-out;
+            will-change: opacity;
+        }
+        &:hover{
+            transform: translateY(-10%) scale(1.05);
+            &::after{
+                opacity: 1;
             }
         }
 
-        &:hover{
-            box-shadow: 0px 5px 24px 0px rgb(95, 95, 95);
-            transform: translateY(-10%) scale(1.01);
-        }
     }
 }
 
@@ -382,8 +424,6 @@ footer{
       }
 }
 
-<<<<<<< Updated upstream
-=======
 .see-more{
     top: 0;
     left: 0;
@@ -468,13 +508,11 @@ footer{
     z-index: 9998;
 
     path{
-        fill: rgba(36, 176, 195, 0.888);
-        mix-blend-mode: multiply;
+        fill: rgba(0, 0, 0, 0.822);
     }
 
 }
 
->>>>>>> Stashed changes
 @media only screen and (min-width: 680px){
     .container{
         margin: 1.5em 5em;
@@ -578,7 +616,7 @@ footer{
         padding: 2em;
         width: 90%;
         background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgb(240, 240, 240) 100%);
-        box-shadow: 5px 0px 16px 0px rgb(160, 162, 183);
+        box-shadow: 10px 10px 40px 0px rgb(220, 220, 220);
 
         img{
             max-width: 100%;
@@ -595,7 +633,7 @@ footer{
     .more-row.flip{
         grid-template-areas: "left right";
         background-image: linear-gradient(90deg, rgb(240, 240, 240) 0%,  rgba(255, 255, 255, 1) 100%);
-        box-shadow: 0px 5px 16px 0px rgb(160, 162, 183);
+        box-shadow: -10px 10px 40px 0px rgb(222, 222, 222);
         img{
             grid-area: left;
         }
@@ -672,6 +710,38 @@ footer{
 
 }
 
+@media only screen and (max-width: 920px){
+    .see-more{
+        overflow-y: scroll !important;
+        .more-content{
+            border-radius: 1%;
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 0 auto;
+            //height: 95%;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.254);
+            .new-dsc{
+                height: 90%;
+                padding-bottom: 10%;
+                h2{
+                    font-size: 4vmax !important;
+                }
+                p{
+                    font-size: 3vmax !important;
+                }
+                button{
+                    font-size: 2vmax;
+                }
+            }
+            .close-button{
+                    position: fixed !important ;
+                    top: 0.5em !important;
+                    right: 0.5em !important;
+            }
+        }
+    }
+
+}
+
 @keyframes intro{
     0%{
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -714,12 +784,11 @@ footer{
     }
 }
 
-@keyframes showNew{
+@keyframes showDsc{
     from{
-        width: 0%;
+        opacity: 0;
     }
     to{
-        width: 30%;
         opacity: 1;
     }
 }

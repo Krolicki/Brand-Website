@@ -131,21 +131,16 @@ header svg {
 }
 .contact-container .left-box {
   height: 100%;
-  background: rgba(99, 36, 0, 0.9411764706);
+  background: rgba(99, 36, 0, 0.9529411765);
   left: 0;
   top: 0;
   margin: 0;
   z-index: 1;
   width: 100%;
   transform-origin: top left;
-<<<<<<< Updated upstream
-  -webkit-animation: showForm 1s ease-out forwards;
-          animation: showForm 1s ease-out forwards;
-=======
-  -webkit-animation: showForm 1.5s 0.5s cubic-bezier(0.42, 0, 0.09, 0.98) both;
-          animation: showForm 1.5s 0.5s cubic-bezier(0.42, 0, 0.09, 0.98) both;
+  -webkit-animation: showForm 1.5s 1s cubic-bezier(0.42, 0, 0.09, 0.98) both;
+          animation: showForm 1.5s 1s cubic-bezier(0.42, 0, 0.09, 0.98) both;
   will-change: transform;
->>>>>>> Stashed changes
 }
 .contact-container .right {
   background: url(../img/1.jpg) no-repeat center;
@@ -391,18 +386,12 @@ footer .logo span {
   0% {
     transform: scaleX(27);
   }
-  30% {
-    transform: scaleX(27);
-  }
   100% {
     transform: scaleX(1);
   }
 }
 @keyframes showForm {
   0% {
-    transform: scaleX(27);
-  }
-  30% {
     transform: scaleX(27);
   }
   100% {

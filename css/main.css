@@ -59,6 +59,7 @@ img {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  will-change: transform;
   -webkit-animation: intro 2s forwards;
           animation: intro 2s forwards;
 }
@@ -126,6 +127,7 @@ h1 {
 section.hero {
   color: white;
   height: 80vh;
+  will-change: opacity, transform;
   -webkit-animation: moveDown 1s ease-in-out forwards;
           animation: moveDown 1s ease-in-out forwards;
   opacity: 0;
@@ -136,6 +138,7 @@ section.hero .arrow {
   position: absolute;
   bottom: 8em;
   height: 10vh;
+  will-change: transform;
   animation: arrowAnim 1s alternate-reverse infinite;
 }
 section.hero .arrow path {
@@ -234,11 +237,6 @@ footer .footer-pageTop .arrowTop::before {
   transform: translateY(0%) scale(1);
 }
 
-.slideNew {
-  -webkit-animation: showNew 1s ease-in-out forwards;
-          animation: showNew 1s ease-in-out forwards;
-}
-
 .new-model {
   color: white;
   margin: 12em 0 8em 0;
@@ -263,6 +261,7 @@ footer .footer-pageTop .arrowTop::before {
   justify-content: center;
   -webkit-clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
           clip-path: polygon(0 8%, 100% 0%, 100% 100%, 0% 100%);
+  position: relative;
 }
 .new-model h1 {
   margin: 0;
@@ -274,29 +273,40 @@ footer .footer-pageTop .arrowTop::before {
 }
 .new-model .new-image {
   color: black;
-  background: rgba(230, 230, 230, 0.9);
+  background: rgba(245, 245, 245, 0.599);
   display: flex;
-  align-items: center;
+  border-radius: 9px;
+  align-items: flex-start;
   flex-direction: column;
   margin: 0 auto 2em auto;
   justify-content: center;
   width: 90%;
   z-index: 1;
-  box-shadow: 0px 0px 12px 0px rgb(95, 95, 95);
-  transition: all 0.5s;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
   transform: translateY(-10%);
   padding: 0;
 }
+.new-model .new-image .more-content {
+  height: 100%;
+  width: 100%;
+}
 .new-model .new-image img {
   margin-top: 0;
-  width: 100%;
-  min-height: 45%;
+  max-width: 100%;
+  height: 45%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .new-model .new-image .new-dsc {
   padding: 3em;
   height: 55%;
+}
+.new-model .new-image .new-dsc .desc {
+  display: none;
+}
+.new-model .new-image .new-dsc .close-button {
+  display: none;
 }
 .new-model .new-image h2 {
   margin: 0.5em 0;
@@ -305,21 +315,53 @@ footer .footer-pageTop .arrowTop::before {
   margin: 0;
 }
 .new-model .new-image button {
+  position: relative;
   margin-top: 1em;
   padding: 1em 2em;
   border: none;
   border-radius: 0.5em;
   background-color: rgb(28, 139, 138);
   color: white;
-  transition: box-shadow 0.5s;
   cursor: pointer;
 }
-.new-model .new-image button:hover {
-  box-shadow: 0px 0px 12px 0px rgb(95, 95, 95);
+.new-model .new-image button::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5em;
+  background: transparent;
+  opacity: 0;
+  box-shadow: 3px 3px 16px 0px rgba(5, 5, 5, 0.305);
+  transition: opacity 0.5s ease-out;
+  will-change: opacity;
+}
+.new-model .new-image button:hover::after {
+  opacity: 1;
+}
+.new-model .new-image::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  background: transparent;
+  opacity: 0.35;
+  box-shadow: 3px 3px 16px 0px rgba(5, 5, 5, 0.305);
+  transition: opacity 0.5s ease-out;
+  will-change: opacity;
 }
 .new-model .new-image:hover {
-  box-shadow: 0px 5px 24px 0px rgb(95, 95, 95);
-  transform: translateY(-10%) scale(1.01);
+  transform: translateY(-10%) scale(1.05);
+}
+.new-model .new-image:hover::after {
+  opacity: 1;
 }
 
 .best .new-dsc {
@@ -363,8 +405,6 @@ footer .footer-pageTop .arrowTop::before {
   overflow: hidden;
 }
 
-<<<<<<< Updated upstream
-=======
 .see-more {
   top: 0;
   left: 0;
@@ -447,11 +487,9 @@ footer .footer-pageTop .arrowTop::before {
   z-index: 9998;
 }
 .scroll-up .menu path, .scroll-down .menu path {
-  fill: rgba(36, 176, 195, 0.888);
-  mix-blend-mode: multiply;
+  fill: rgba(0, 0, 0, 0.822);
 }
 
->>>>>>> Stashed changes
 @media only screen and (min-width: 680px) {
   .container {
     margin: 1.5em 5em;
@@ -467,8 +505,6 @@ footer .footer-pageTop .arrowTop::before {
     display: none;
   }
 
-<<<<<<< Updated upstream
-=======
   header {
     display: flex;
     justify-content: center;
@@ -481,7 +517,6 @@ footer .footer-pageTop .arrowTop::before {
     transition: all 0.3s;
   }
 
->>>>>>> Stashed changes
   nav {
     transform: translateX(0);
     position: relative;
@@ -550,7 +585,7 @@ footer .footer-pageTop .arrowTop::before {
     padding: 2em;
     width: 90%;
     background-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(240, 240, 240) 100%);
-    box-shadow: 5px 0px 16px 0px rgb(160, 162, 183);
+    box-shadow: 10px 10px 40px 0px rgb(220, 220, 220);
   }
   .more-row img {
     max-width: 100%;
@@ -565,7 +600,7 @@ footer .footer-pageTop .arrowTop::before {
   .more-row.flip {
     grid-template-areas: "left right";
     background-image: linear-gradient(90deg, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 100%);
-    box-shadow: 0px 5px 16px 0px rgb(160, 162, 183);
+    box-shadow: -10px 10px 40px 0px rgb(222, 222, 222);
   }
   .more-row.flip img {
     grid-area: left;
@@ -622,8 +657,6 @@ footer .footer-pageTop .arrowTop::before {
     margin: 1.5em auto;
   }
 
-<<<<<<< Updated upstream
-=======
   .navbar {
     width: 1100px;
     margin: 0;
@@ -633,7 +666,6 @@ footer .footer-pageTop .arrowTop::before {
     padding: 1.5em 0;
   }
 
->>>>>>> Stashed changes
   .more {
     width: 100%;
   }
@@ -645,6 +677,35 @@ footer .footer-pageTop .arrowTop::before {
 
   nav {
     margin: 0;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .see-more {
+    overflow-y: scroll !important;
+  }
+  .see-more .more-content {
+    border-radius: 1%;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 0 auto;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.254);
+  }
+  .see-more .more-content .new-dsc {
+    height: 90%;
+    padding-bottom: 10%;
+  }
+  .see-more .more-content .new-dsc h2 {
+    font-size: 4vmax !important;
+  }
+  .see-more .more-content .new-dsc p {
+    font-size: 3vmax !important;
+  }
+  .see-more .more-content .new-dsc button {
+    font-size: 2vmax;
+  }
+  .see-more .more-content .close-button {
+    position: fixed !important;
+    top: 0.5em !important;
+    right: 0.5em !important;
   }
 }
 @-webkit-keyframes intro {
@@ -717,21 +778,19 @@ footer .footer-pageTop .arrowTop::before {
     opacity: 1;
   }
 }
-@-webkit-keyframes showNew {
+@-webkit-keyframes showDsc {
   from {
-    width: 0%;
+    opacity: 0;
   }
   to {
-    width: 30%;
     opacity: 1;
   }
 }
-@keyframes showNew {
+@keyframes showDsc {
   from {
-    width: 0%;
+    opacity: 0;
   }
   to {
-    width: 30%;
     opacity: 1;
   }
 }/*# sourceMappingURL=main.css.map */
