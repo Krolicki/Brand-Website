@@ -5,6 +5,8 @@ const slideElements = document.querySelectorAll(".slide");
 const listItems = document.querySelectorAll("li");
 const rates = document.querySelectorAll(".rate");
 
+var lastScroll = 0;
+
 menu.addEventListener("click", () => {
     nav.classList.add("open-nav");
 })
@@ -13,7 +15,7 @@ close.addEventListener("click", () => {
     nav.classList.remove("open-nav");
 })
 
-function debounce(func, wait = 17, immediate = true) {
+function debounce(func, wait = 12, immediate = true) {
     var timeout;
   
     return function executedFunction() {
@@ -54,9 +56,40 @@ function slide(e){
         if(scrollDist <  getElemDistance(element))
             element.classList.remove("slideIn");
     });
+
+    let scroll = window.pageYOffset;
+
+    if(scroll <= 0){
+        document.body.classList.remove("scroll-up");
+    }
+    if(scroll > lastScroll && !document.body.classList.contains("scroll-down")){
+        document.body.classList.add("scroll-down");
+        document.body.classList.remove("scroll-up");
+    }
+    if(scroll < lastScroll && document.body.classList.contains("scroll-down")){
+        document.body.classList.add("scroll-up");
+        document.body.classList.remove("scroll-down");
+    }
+    lastScroll = scroll;
 }
 
-window.addEventListener('scroll', debounce(slide));
+function navbar(){
+    let scroll = window.pageYOffset;
+
+    if(scroll <= 0){
+        document.body.classList.remove("scroll-up");
+    }
+    if(scroll > lastScroll && !document.body.classList.contains("scroll-down")){
+        document.body.classList.add("scroll-down");
+        document.body.classList.remove("scroll-up");
+
+    }
+    lastScroll = scroll;
+}
+
+window.addEventListener('scroll',
+    debounce(slide)
+);
 
 window.onload = setTimeout( () => { slide(); }, 2000);
 

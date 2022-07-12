@@ -138,8 +138,14 @@ header svg {
   z-index: 1;
   width: 100%;
   transform-origin: top left;
+<<<<<<< Updated upstream
   -webkit-animation: showForm 1s ease-out forwards;
           animation: showForm 1s ease-out forwards;
+=======
+  -webkit-animation: showForm 1.5s 0.5s cubic-bezier(0.42, 0, 0.09, 0.98) both;
+          animation: showForm 1.5s 0.5s cubic-bezier(0.42, 0, 0.09, 0.98) both;
+  will-change: transform;
+>>>>>>> Stashed changes
 }
 .contact-container .right {
   background: url(../img/1.jpg) no-repeat center;
