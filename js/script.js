@@ -136,5 +136,3 @@ seeMoreButtons.forEach(btn => {
 
     })
 })
-
-console.log(getComputedStyle(menu).display === "none");

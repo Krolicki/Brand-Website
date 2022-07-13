@@ -38,15 +38,15 @@
                 <h2>Contact us</h2>
                 <form>
                     <div class="inp">
-                        <input type="text" placeholder="Name" class="field" name="name">
+                        <input type="text" placeholder="Name" class="field" name="name" required>
                         <label for="name">Name</label>
                     </div>
                     <div class="inp">
-                        <input type="email" placeholder="Email" class="field" name="mail">
+                        <input type="email" placeholder="Email" class="field" name="mail" required>
                         <label for="mail">Email</label>
                     </div>
                     <div class="inp area">
-                        <textarea placeholder="Message" class="field" name="message"></textarea>   
+                        <textarea placeholder="Message" class="field" name="message" required></textarea>   
                         <label for="message">Message</label>   
                     </div>      
                     <button type="submit">Send</button>
@@ -66,5 +66,9 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script>
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
+    </script>
 </body>
 </html>
