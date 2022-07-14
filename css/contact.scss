@@ -150,7 +150,7 @@ header{
         z-index: 1;
         width: 100%;
         transform-origin: top left;
-        animation: showForm 1.5s 1s cubic-bezier(.42,0,.09,.98) both;
+        animation: showForm 1.5s .5s cubic-bezier(.42,0,.09,.98) both;
         will-change: transform;
     }
 

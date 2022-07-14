@@ -272,6 +272,8 @@ footer .footer-pageTop .arrowTop::before {
   padding-left: 10vw;
   padding-bottom: 3em;
   padding-right: 10vw !important;
+  margin-right: auto;
+  justify-content: flex-start;
   flex-direction: row;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;

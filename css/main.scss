@@ -289,6 +289,8 @@ footer{
         padding-left: 10vw;
         padding-bottom: 3em;
         padding-right: 10vw !important;
+        margin-right: auto;
+        justify-content: flex-start;
         flex-direction: row;
         overflow-x: auto;
        // overflow-y: hidden;
@@ -299,7 +301,6 @@ footer{
         &::-webkit-scrollbar {
             display: none;
         }
-
     }
 
     .new-image{
