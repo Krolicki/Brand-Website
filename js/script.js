@@ -117,12 +117,14 @@ seeMoreButtons.forEach(btn => {
         let clsBtn = document.createElement('span');
         clsBtn.setAttribute('class', 'close-button');
         clone.querySelector(".new-dsc").appendChild(clsBtn);
-        btn.closest(".new-models").appendChild(clone);
+        //btn.closest(".new-models").appendChild(clone);
+        document.body.appendChild(clone);
 
         clone.querySelector(".close-button").addEventListener("click", function closeSection(){
             clone.classList.remove("show-element");
             setTimeout(() => {
-                btn.closest(".new-models").removeChild(clone);
+                //btn.closest(".new-models").removeChild(clone);
+                document.body.removeChild(clone);
                 if(getComputedStyle(menu).display !== "none"){
                     menu.classList.remove("move-back");
                 }
