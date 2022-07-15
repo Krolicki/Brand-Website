@@ -383,10 +383,12 @@ footer .footer-pageTop .arrowTop::before {
   stroke: black;
   position: absolute;
   bottom: 1em;
+  right: 25vw;
   height: 30vw;
-  transform: rotate(-90deg);
-  will-change: transform;
+  will-change: transform, opacity;
   animation: arrowAnimSide 1s alternate-reverse infinite;
+  transition: opacity 0.3s ease-out;
+  opacity: 1;
 }
 .new-model .arrow path {
   fill: black;
@@ -522,6 +524,12 @@ footer .footer-pageTop .arrowTop::before {
 
 .show-element {
   opacity: 1;
+}
+
+.hide-element {
+  opacity: 0 !important;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .move-back {

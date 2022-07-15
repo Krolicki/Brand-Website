@@ -429,10 +429,12 @@ footer{
         stroke: black;
         position: absolute;
         bottom: 1em;
+        right: 25vw;
         height: 30vw;
-        transform: rotate(-90deg);
-        will-change: transform;
+        will-change: transform, opacity;
         animation: arrowAnimSide 1s alternate-reverse infinite;
+        transition: opacity .3s ease-out;
+        opacity: 1;
         path{
             fill: black;
         }
@@ -576,6 +578,11 @@ footer{
     opacity: 1;
 }
 
+.hide-element{
+    opacity: 0 !important;
+    animation: none;
+}
+
 .move-back{
     transform: translateX(-120%);
 }
@@ -591,6 +598,7 @@ footer{
         fill: rgba(36, 176, 195, 0.888);
     }
 }
+
 @media only screen and (min-width: 680px){
     .container{
         margin: 1.5em 5em;

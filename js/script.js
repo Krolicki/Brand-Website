@@ -5,6 +5,8 @@ const slideElements = document.querySelectorAll(".slide");
 const listItems = document.querySelectorAll("li");
 const rates = document.querySelectorAll(".rate");
 const seeMoreButtons = document.querySelectorAll(".new-dsc button");
+const newModels = document.querySelectorAll(".new-models");
+
 
 var lastScroll = 0;
 
@@ -138,3 +140,19 @@ seeMoreButtons.forEach(btn => {
 
     })
 })
+
+newModels.forEach( panel => {
+    panel.addEventListener("scroll", debounce((e) => {
+        let elemmentWidth = e.currentTarget.scrollWidth - e.currentTarget.offsetWidth;
+        let scrollWidth = e.currentTarget.scrollLeft;
+        let scrollDistance = elemmentWidth - scrollWidth;
+        let arrowScroll = e.currentTarget.parentNode.querySelector(".arrow");
+
+        if(scrollDistance <= 0){
+            arrowScroll.classList.add("hide-element");
+        }
+        if(arrowScroll.classList.contains("hide-element") && scrollDistance > 0){
+            arrowScroll.classList.remove("hide-element");
+        }
+    }));
+});
