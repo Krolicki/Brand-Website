@@ -379,6 +379,18 @@ footer .footer-pageTop .arrowTop::before {
 .new-model .new-image:hover::after {
   opacity: 1;
 }
+.new-model .arrow {
+  stroke: black;
+  position: absolute;
+  bottom: 1em;
+  height: 30vw;
+  transform: rotate(-90deg);
+  will-change: transform;
+  animation: arrowAnimSide 1s alternate-reverse infinite;
+}
+.new-model .arrow path {
+  fill: black;
+}
 
 .best .new-dsc {
   margin: 0 auto;
@@ -535,6 +547,9 @@ footer .footer-pageTop .arrowTop::before {
   .new-image {
     width: 70% !important;
   }
+  .new-model .arrow {
+    bottom: 0;
+  }
 }
 @media only screen and (min-width: 920px) {
   .menu {
@@ -652,8 +667,14 @@ footer .footer-pageTop .arrowTop::before {
   .new-image .new-dsc {
     padding: 2em 0.5em 0 0.5em !important;
   }
+  .new-image:hover {
+    transform: translateY(2%) scale(1.01);
+  }
   .new-model h1 {
     font-size: 5rem;
+  }
+  .new-model .arrow {
+    display: none;
   }
   .new-models {
     flex-direction: row !important;
@@ -790,6 +811,22 @@ footer .footer-pageTop .arrowTop::before {
   }
   to {
     transform: translateY(0);
+  }
+}
+@-webkit-keyframes arrowAnimSide {
+  from {
+    transform: translateX(30px) rotate(-90deg);
+  }
+  to {
+    transform: translateX(0) rotate(-90deg);
+  }
+}
+@keyframes arrowAnimSide {
+  from {
+    transform: translateX(30px) rotate(-90deg);
+  }
+  to {
+    transform: translateX(0) rotate(-90deg);
   }
 }
 @-webkit-keyframes moveDown {
