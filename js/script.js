@@ -137,7 +137,13 @@ seeMoreButtons.forEach(btn => {
         if(getComputedStyle(menu).display !== "none"){
             menu.classList.add("move-back");
         }
-
+        if(nav.classList.contains("open-nav")){
+            nav.classList.remove("open-nav");
+        }
+        if(document.body.classList.contains("scroll-up")){
+            document.body.classList.add("scroll-down");
+            document.body.classList.remove("scroll-up");
+        }
     })
 })
 
