@@ -12,11 +12,20 @@ var lastScroll = 0;
 
 menu.addEventListener("click", () => {
     nav.classList.add("open-nav");
+    nav.setAttribute('tabindex', '-1')
+    nav.focus();
 })
 
 close.addEventListener("click", () => {
     nav.classList.remove("open-nav");
+    nav.removeAttribute('tabindex');
 })
+
+nav.addEventListener("focusout", () => {
+    nav.classList.remove("open-nav");
+    nav.removeAttribute('tabindex');
+})
+
 
 function debounce(func, wait = 12, immediate = true) {
     var timeout;
