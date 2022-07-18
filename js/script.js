@@ -27,7 +27,7 @@ nav.addEventListener("focusout", () => {
 })
 
 
-function debounce(func, wait = 12, immediate = true) {
+function debounce(func, wait = 14, immediate = true) {
     var timeout;
   
     return function executedFunction() {
